@@ -1,0 +1,32 @@
+{
+ "schema": "gewu-skill-engine.v1",
+ "skill_id": "kb-corpus-pipeline",
+ "engine": "pipeline",
+ "runtime": "node>=20（零第三方依赖）",
+ "dependencies": [],
+ "entry": {
+  "all": "scripts/pipeline.mjs",
+  "selftest": "scripts/selftest.mjs"
+ },
+ "stages": [
+  { "stage": 1, "id": "collect", "script": "scripts/collect.mjs", "input": "topics.json", "output": "raw/" },
+  { "stage": 2, "id": "verify", "script": "scripts/verify.mjs", "input": "raw/ + authority.json", "output": "verified/" },
+  { "stage": 3, "id": "clean", "script": "scripts/clean.mjs", "input": "verified/", "output": "clean/" },
+  { "stage": 4, "id": "classify", "script": "scripts/classify.mjs", "input": "clean/ + domains.json", "output": "candidates/" }
+ ],
+ "contract": "references/corpus-contract.md",
+ "config_templates": {
+  "authority": "references/authority.example.json",
+  "domains": "references/domains.example.json",
+  "wordlist": "references/internal-wordlist.json"
+ },
+ "hard_gates": [
+  "内部词表零命中（命中即整批拒绝，退出码 3）",
+  "无依据不进候选",
+  "无 YAML 元信息头",
+  "一问一条",
+  "manifest counts.total = 条数，可被入库层直接吃下"
+ ],
+ "external_writes": 0,
+ "notes": "只读外部（仅 GET）；不改门户/网关/技能目录；第 5–7 段归既有工具。"
+}

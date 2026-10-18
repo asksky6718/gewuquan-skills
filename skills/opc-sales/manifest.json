@@ -1,0 +1,15 @@
+{
+  "skill_id": "opc-sales",
+  "name": "opc-sales",
+  "display_name": "销售部订单引擎",
+  "version": "1.1.1",
+  "mode": "Production",
+  "role": "流水线成交段：线索＋课程 → 带审批留痕的订单",
+  "publish": "public",
+  "owner": "OPC 家族",
+  "entry": "SKILL.md",
+  "dependencies": {
+    "python": ">=3.10",
+    "network": false
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "skill_id": "opc-aftersales",
+  "name": "opc-aftersales",
+  "display_name": "售后部结算引擎",
+  "version": "1.1.1",
+  "mode": "Production",
+  "role": "流水线结算段：交付＋计量审计 → 结算与晋级信号",
+  "publish": "public",
+  "owner": "OPC 家族",
+  "entry": "SKILL.md",
+  "dependencies": {
+    "python": ">=3.10",
+    "network": false
+  }
+}

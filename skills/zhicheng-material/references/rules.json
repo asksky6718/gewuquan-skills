@@ -1,0 +1,239 @@
+{
+  "engine": "material",
+  "outputs": "按目标等级、申报通道与当前身份，输出逐项带知识库出处、材料要求、出具方与办理地点的申报材料清单、缺件提示与可复制的逐项生成指令。",
+  "boundary": "本清单只作材料准备参考，不构成报名受理、资格认定或通过承诺；须本人核对材料的真实性、完整性与当期评价计划的一致性；能否报、报哪一级以评价机构与属地人社部门核定为准；不代提交、不代签字、不代盖章。",
+  "declarations": [
+    "须本人核对：所有材料的真实性、完整性与当期评价计划的一致性，由本人逐项核对后再提交。",
+    "不代提交：本页不回传任何报名系统，也不代替你提交任何报名或申报。",
+    "不代签字：本页不生成、不代替任何本人签名。",
+    "不代盖章：本页不代办、不代替任何单位盖章。"
+  ],
+  "evidence": {
+    "zhicheng_levels": "人工智能训练师能报几级？各级申报条件是什么？",
+    "zhicheng_channel": "找谁报？三类评价通道怎么选？",
+    "zhicheng_verify": "评价机构资质怎么核验？",
+    "zhicheng_subsidy": "技能提升补贴能领多少？",
+    "zhicheng_certquery": "证书怎么查询？有哪些特性？"
+  },
+  "fields": [
+    {
+      "name": "level",
+      "label": "目标等级",
+      "type": "select",
+      "required": true,
+      "options": [
+        ["level5", "五级 / 初级工"],
+        ["level4", "四级 / 中级工"],
+        ["level3", "三级 / 高级工"],
+        ["level2", "二级 / 技师"],
+        ["level1", "一级 / 高级技师"]
+      ]
+    },
+    {
+      "name": "channel",
+      "label": "申报通道",
+      "type": "select",
+      "required": true,
+      "options": [
+        ["employer", "用人单位自主评价"],
+        ["social", "社会培训评价组织"],
+        ["school", "技工院校 / 职业院校"]
+      ]
+    },
+    {
+      "name": "status",
+      "label": "当前身份",
+      "type": "select",
+      "required": true,
+      "options": [
+        ["employed", "企业在职职工"],
+        ["student", "在校生（含应届）"],
+        ["other", "灵活就业 / 其他"]
+      ]
+    },
+    {
+      "name": "known",
+      "label": "已具备材料",
+      "type": "checkbox_group",
+      "options": [
+        ["identity", "身份证明"],
+        ["education", "学历 / 学籍证明"],
+        ["work", "工作年限证明"],
+        ["cert", "已有职业技能等级证书"],
+        ["title", "已有职称证书"],
+        ["achievement", "业绩 / 成果材料"],
+        ["form", "申报表与个人承诺"],
+        ["agency", "评价机构资质核验记录"],
+        ["plan", "当期评价计划与缴费凭证"],
+        ["employer_record", "单位自主评价备案 / 岗位考核材料"],
+        ["student_status", "在校学籍证明"]
+      ]
+    }
+  ],
+  "levels": [
+    { "key": "level5", "name": "五级 / 初级工", "num": 5 },
+    { "key": "level4", "name": "四级 / 中级工", "num": 4 },
+    { "key": "level3", "name": "三级 / 高级工", "num": 3 },
+    { "key": "level2", "name": "二级 / 技师", "num": 2 },
+    { "key": "level1", "name": "一级 / 高级技师", "num": 1 }
+  ],
+  "channels": [
+    { "key": "employer", "name": "用人单位自主评价" },
+    { "key": "social", "name": "社会培训评价组织" },
+    { "key": "school", "name": "技工院校 / 职业院校" }
+  ],
+  "statuses": [
+    { "key": "employed", "name": "企业在职职工" },
+    { "key": "student", "name": "在校生（含应届）" },
+    { "key": "other", "name": "灵活就业 / 其他" }
+  ],
+  "base_items": [
+    {
+      "key": "identity",
+      "name": "身份证明",
+      "requirement": "身份证原件及复印件（异地报名按机构要求可能另需居住或户籍佐证）",
+      "issuer": "本人提供",
+      "where": "本人 / 公安户籍窗口",
+      "evidence_id": null
+    },
+    {
+      "key": "education",
+      "name": "学历 / 学籍证明",
+      "requirement": "毕业证书原件及复印件，或学信网《教育部学历证书电子注册备案表》；在读应届生提供学籍在线验证报告",
+      "issuer": "毕业院校 / 学信网",
+      "where": "学信网（chsi.com.cn）或毕业院校",
+      "evidence_id": "zhicheng_levels"
+    },
+    {
+      "key": "work",
+      "name": "工作年限证明",
+      "requirement": "劳动合同、在职证明、社保参保缴费记录等可举证材料（年限为累计口径，不要求连续、不要求同一单位）",
+      "issuer": "用人单位 / 社保经办机构",
+      "where": "用人单位人事部门 / 参保地社保经办机构 / 掌上12333",
+      "evidence_id": "zhicheng_levels"
+    },
+    {
+      "key": "cert",
+      "name": "已有职业技能等级证书",
+      "requirement": "证书原件及复印件或证书编号（用于逐级申报路径；可在技能人才评价证书全国联网查询核对）",
+      "issuer": "原发证机构",
+      "where": "本人留存；查不到先联系发证机构确认数据上传情况",
+      "evidence_id": "zhicheng_certquery"
+    },
+    {
+      "key": "title",
+      "name": "已有职称证书（如有）",
+      "requirement": "职称证书原件及复印件（用于职称对应路径；没有则不提供）",
+      "issuer": "原评审机构",
+      "where": "本人留存 / 原评审机构",
+      "evidence_id": "zhicheng_levels"
+    },
+    {
+      "key": "achievement",
+      "name": "业绩 / 成果材料",
+      "requirement": "项目、课程、获奖、论文等逐条可举证的业绩清单",
+      "issuer": "本人 / 所在单位",
+      "where": "本人整理，必要时由所在单位确认",
+      "evidence_id": null
+    },
+    {
+      "key": "form",
+      "name": "申报表与个人承诺",
+      "requirement": "按当期评价计划的申报表逐项填写，本人签字确认",
+      "issuer": "评价机构提供模板 / 本人填写",
+      "where": "评价机构当期公告或报名系统",
+      "evidence_id": "zhicheng_channel"
+    }
+  ],
+  "level_items": {
+    "2": [
+      {
+        "key": "prev_cert",
+        "name": "下一级职业技能等级证书（三级）",
+        "requirement": "二级 / 技师须先取得三级 / 高级工证书（逐级申报路径）",
+        "issuer": "原发证机构",
+        "where": "原评价机构 / 技能人才评价证书全国联网查询",
+        "evidence_id": "zhicheng_levels"
+      }
+    ],
+    "1": [
+      {
+        "key": "prev_cert",
+        "name": "下一级职业技能等级证书（二级）",
+        "requirement": "一级 / 高级技师须先取得二级 / 技师证书（逐级申报路径）",
+        "issuer": "原发证机构",
+        "where": "原评价机构 / 技能人才评价证书全国联网查询",
+        "evidence_id": "zhicheng_levels"
+      }
+    ],
+    "3": [
+      {
+        "key": "junior_title",
+        "name": "初级职称证明（走职称对应路径时）",
+        "requirement": "取得专业对应关系的初级职称后累计满 1 年",
+        "issuer": "原评审机构",
+        "where": "本人留存 / 原评审机构",
+        "evidence_id": "zhicheng_levels"
+      }
+    ]
+  },
+  "channel_items": {
+    "social": [
+      {
+        "key": "agency",
+        "name": "评价机构资质核验记录",
+        "requirement": "机构须在职业技能等级评价机构公示查询系统公示名单内，且可评价职业（工种）与等级范围包含目标等级",
+        "issuer": "本人核验",
+        "where": "pjjg.osta.org.cn（公示查询系统）",
+        "evidence_id": "zhicheng_verify"
+      },
+      {
+        "key": "plan",
+        "name": "当期评价计划与缴费凭证",
+        "requirement": "按机构公示的当期评价计划报名、缴费，留存报名与缴费凭证",
+        "issuer": "评价机构",
+        "where": "机构公示的报名系统 / 属地人社部门当期评价计划公告",
+        "evidence_id": "zhicheng_verify"
+      }
+    ],
+    "employer": [
+      {
+        "key": "employer_record",
+        "name": "单位自主评价备案 / 岗位考核材料",
+        "requirement": "单位已在人社部门备案自主评价，且岗位与考核安排匹配；离职后不能再走本企业通道报更高等级",
+        "issuer": "用人单位",
+        "where": "用人单位人力资源部门",
+        "evidence_id": "zhicheng_channel"
+      }
+    ],
+    "school": [
+      {
+        "key": "student_status",
+        "name": "在校学籍证明（含应届）",
+        "requirement": "本校学籍在校生（含应届）；社会人员一般不适用该通道",
+        "issuer": "所在院校",
+        "where": "所在院校学籍管理部门",
+        "evidence_id": "zhicheng_channel"
+      }
+    ]
+  },
+  "subsidy_item": {
+    "key": "subsidy",
+    "name": "技能提升补贴申领材料（可选）",
+    "requirement": "失业保险参保缴费记录、证书、本人银行卡等；须在证书核发之日起 12 个月内申领",
+    "issuer": "参保地经办机构",
+    "where": "参保地社保经办机构 / 掌上12333",
+    "evidence_id": "zhicheng_subsidy"
+  },
+  "subsidy_levels": [3, 4, 5],
+  "notes": [
+    "本清单只作准备参考，不构成报名受理或资格认定；能否报、报哪一级按现行口径测算，以评价机构与属地人社部门核定为准。",
+    "逐级申报口径来自知识库条目《人工智能训练师能报几级？各级申报条件是什么？》；三类通道差异来自《找谁报？三类评价通道怎么选？》。"
+  ],
+  "sample": {
+    "level": "level3",
+    "channel": "social",
+    "status": "employed",
+    "known": ["education", "work"]
+  }
+}

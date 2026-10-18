@@ -1,0 +1,23 @@
+{
+  "skill_id": "opc-market",
+  "name": "opc-market",
+  "display_name": "市场部获客引擎",
+  "version": "2.0.1",
+  "mode": "Production",
+  "role": "流水线起点：智能体×自媒体获客 → 触点 → 带级别标签的招生线索",
+  "publish": "public",
+  "owner": "OPC 家族",
+  "entry": "SKILL.md",
+  "subskills": [
+    "skills/media-engine",
+    "skills/lead-intake"
+  ],
+  "tools": [
+    "tools/lead_check.py",
+    "tools/selftest.py"
+  ],
+  "dependencies": {
+    "python": ">=3.10",
+    "network": false
+  }
+}

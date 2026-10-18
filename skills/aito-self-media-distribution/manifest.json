@@ -1,0 +1,54 @@
+{
+  "name": "aito-self-media-distribution",
+  "display_name": "AiToEarn 自媒体分发",
+  "version": "1.0.0",
+  "mode": "Production",
+  "role": "AiToEarn 控制台的多平台自媒体分发操作技能（插件就绪 / 账号绑定 / 发布 / 排障）",
+  "publish": "public（已参数化：无第三方实例域名、无凭据、无本机绝对路径）",
+  "owner": "本团队",
+  "created": "2026-10-13",
+  "entrypoint": "SKILL.md",
+  "min_scope": "write",
+  "complexity": "M",
+  "tags": ["social-media", "publishing", "browser-automation", "playwright", "self-hosted"],
+  "requires_user_input": [
+    "实例域名（你自己部署的 AiToEarn 地址）",
+    "本机已装的 Playwright Python",
+    "以固定 profile ＋ 远程调试端口启动的 Chromium",
+    "目标平台人工扫码登录态"
+  ],
+  "resources": {
+    "subskills": [
+      "skills/plugin-setup/SKILL.md",
+      "skills/account-bind/SKILL.md",
+      "skills/publish/SKILL.md",
+      "skills/troubleshoot/SKILL.md"
+    ],
+    "references": [
+      "references/driving.md",
+      "references/selectors.md",
+      "references/api-readonly.md",
+      "references/pitfalls.md",
+      "references/platform-coverage.md"
+    ]
+  },
+  "gates": [
+    "插件未就绪则不进入绑定与发布",
+    "发布前账号须接口核对 status=1",
+    "一次只选一个账号",
+    "对外可见内容须先经负责人过目",
+    "凭据不入技能正文、不入产出物、不入对话"
+  ],
+  "known_limits": [
+    "定时发布不生效（确认后仍按立即发布执行）",
+    "草稿仅存浏览器 localStorage，不落服务端"
+  ],
+  "exclusions": [
+    "不代使用者登录其平台账号、不代填口令与验证码",
+    "不代他人发布对外内容",
+    "不自动安装依赖、不发起网络请求"
+  ],
+  "sources": [
+    "AiToEarn 自部署实例实机实测（2026-10-12 至 2026-10-13）"
+  ]
+}

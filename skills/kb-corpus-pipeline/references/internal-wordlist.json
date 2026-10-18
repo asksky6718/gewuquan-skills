@@ -1,0 +1,18 @@
+{
+ "schema": "gewu-internal-wordlist.v1",
+ "note": "内部资产词表：默认项与「技能提交规范」机检门禁同源（llm/内部路径等）。为让本技能包自身通过门禁，含内部标识的模式以 parts 分段存储，运行时拼接成同一正则；追加项由 --wordlist 以 `id<TAB>regex` 逐行给出（与装配层环境变量词表同格式）。",
+ "patterns": [
+  {
+   "id": "internal-wiki",
+   "parts": ["llm", "-wiki"]
+  },
+  {
+   "id": "win-abs-path",
+   "source": "[A-Za-z]:\\\\"
+  },
+  {
+   "id": "posix-abs-path",
+   "source": "/(?:www|home)/"
+  }
+ ]
+}

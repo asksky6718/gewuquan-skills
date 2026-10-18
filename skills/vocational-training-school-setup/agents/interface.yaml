@@ -1,0 +1,46 @@
+name: vocational-training-school-setup
+version: 1.1.0
+display_name_zh: 职业技能等级认定培训机构 · 成立全流程
+summary_zh: >-
+  把「办一所能做职业技能培训、并能开展职业技能等级认定的机构」拆成可核对、可交付、有时限的流程，
+  并用官方公开口径逐条校核项目推进表，输出阻断级缺口与优先动作。
+inputs:
+  - 项目推进表（xlsx，含阶段/任务/交付物/负责人/状态/验收标准/时间节点）
+  - 属地（省/市/区县）与机构属性（营利/非营利）
+  - 拟培训职业（工种）与是否要开展职业技能等级认定
+outputs:
+  - 属地口径卡（审批机关、依据文号、材料来源链接）
+  - 推进表机械核对报告（阻断/重要/建议/提示四级）
+  - 缺口补充清单（交付物 + 可判验收标准 + 时间节点 + 依据）
+  - 交付物检查表（含证据索引）
+  - 合规运行台账（年检/台账/协议/公示/变更终止）
+stages:
+  - skills/scope-route/SKILL.md
+  - skills/gap-check/SKILL.md
+  - skills/deliverables/SKILL.md
+  - skills/compliance/SKILL.md
+  - skills/evaluation/SKILL.md
+tools:
+  scripts:
+    - path: scripts/gap_check.py
+      lang: python
+      deps: [openpyxl]
+      usage: python scripts/gap_check.py --xlsx <file> [--region 湖北] [--json-out out.json]
+      network: false
+      writes: ["--json-out 指定的文件（可选）"]
+references:
+  - references/official-process-hubei.md
+  - references/official-process-shanghai.md
+  - references/playbook-9-stages.md
+  - references/checklist-and-gaps.md
+  - references/application-package-recipe.md
+  - references/case-shanghai-ai-trainer.md
+handoff:
+  upstream: [项目立项/选址/预算资料, 属地当期办事指南原文]
+  downstream: [项目推进表修订, 培训学校资质申报材料清单, 对外指导文件]
+guardrails:
+  - 地区差异不得跨区套用，缺原文写「待属地核」
+  - 培训资质与评价资质不得混称
+  - 不承诺结果/补贴/评审通过
+  - 不代签代盖、不生成虚假材料
+  - 对外材料不出现未签约的第三方机构具名

@@ -1,0 +1,91 @@
+---
+name: eduopenai-core-ops
+description: EduOpenAI Core（互动课件生成平台）的管理后台与生成端操作技能。覆盖后台登录（接口与鉴权体）、生成端出课件的完整流程、发布对接（OSS 静态播放器／网校课时同步／iframe 嵌入）、系统设置各供应商配置（含视频生成）、插件与模型清单读法、常见排障。当需要登录 Core 管理后台、用某个主题生成互动课堂课件、把课件发布到 OSS 或同步到网校课时、配置视频/图像/语音等供应商、或排查登录失败/生成失败/发布失败时使用。
+version: "1.0.0"
+display_name: EduOpenAI Core 操作
+description_zh: Core 控制台操作技能：后台登录、生成课件、发布对接、供应商配置与排障。
+summary: 操作 EduOpenAI Core 的后台与生成端：登录、出课件、发布对接、供应商配置。
+user-invocable: true
+category: work
+argument-hint: "[可选：登录 / 生成 / 发布 / 供应商 / 排障]"
+allowed-tools: [Read, Write, Edit, Grep, Glob, Bash]
+min_scope: admin
+tags: [course-generation, admin-console, publishing, provider-config, education]
+triggers: [Core 操作, 管理后台登录, 生成课件, 互动课堂, 出课件, 发布对接, 发布到 OSS, 网校课时, 供应商配置, 视频生成配置, 模型清单, Core 排障]
+complexity: L
+---
+
+# EduOpenAI Core 操作（操作技能）
+
+按用户意图 **`Read`** 对应环节的说明，再动手。**先查「路由判定表」定去向，再看「通则」。**
+
+> **平台入口（生产站）**：用户面 `https://www.eduopenai.com/`｜管理后台 `https://www.eduopenai.com/admin`（登录页 `/admin-login`）。
+> **口令不在本技能内**：管理口令由使用者从凭据保险库取用，**不入技能正文、不入产出物、不入对话**。
+
+**一句话机制**：用户在**生成端**输入课程主题 → 平台按「知识点清单 → 逐知识点生成 → 组合成课」的碎片化机制产出互动课堂 → 课件自动落「我的课件」→ 管理员在**后台**发布到 OSS 或同步为网校课时。
+
+## 能力总览
+
+| 能力 | 做什么 | 入口 |
+|---|---|---|
+| **后台登录** | 走 `/admin-login` 或登录接口拿到管理会话；核对未登录与失败口令的响应形态 | `skills/admin-login/SKILL.md` |
+| **生成课件** | 在生成端按主题产出互动课堂，并核对落库与配额 | `skills/course-generate/SKILL.md` |
+| **发布对接** | 发布到 OSS（静态播放器）／同步为网校课时／取 iframe 嵌入码 | `skills/publish-integration/SKILL.md` |
+| **供应商与模型** | 系统设置内各供应商（含视频生成）配置与连接测试；读插件与模型清单 | `skills/provider-config/SKILL.md` |
+| **排障** | 登录失败／生成失败／发布失败的现象→处置清单 | `skills/troubleshoot/SKILL.md` |
+
+## 路由判定表
+
+「须点名」= 只有用户明确说出该行触发词才进入。
+
+| 用户这样说 | 前置门禁（不满足就停下说明） | 进入 | 明确不要做 |
+|---|---|---|---|
+| 登录后台 / 进管理后台 / 后台打不开 | 须已从凭据库取到管理口令 | 后台登录 | 不代存、不代转述口令；不把口令写进任何产出物 |
+| 生成课件 / 出个课件 / 做个互动课堂 | 须已知**课程主题与目标人群** | 生成课件 | 不代审内容合规口径；**不把生成内容直接对外发布** |
+| 发布到 OSS / 同步网校课时 / 取 iframe | 须课件已生成并在「我的课件」可见 | 发布对接 | 不擅自改目标网校课程结构；不对外承诺播放地址有效期 |
+| 配供应商 / 配视频生成 / 看看模型清单 | 须已登录后台且具备系统设置权限 | 供应商与模型 | **不代填 API Key**（由使用者写入）；不跳过连接测试就算配好 |
+| 登录失败 / 生成失败 / 发布失败 | 需给出**现象原话**与时间点 | 排障 | 不猜根因，须以实跑证据为准 |
+| 换模型 / 配额不够 / 审核用户 | — | 转 `skills/troubleshoot/SKILL.md` 归口，或按后台对应模块走 | 不代做用户审核决策 |
+
+## 通则
+
+- **根只做路由**：业务步骤一律在 `skills/<环节>/SKILL.md` 与 `references/`。
+- **接口以实测为准**：登录接口、未登录响应、失败口令响应均已实测（见 `references/endpoints.md`）；接口若变更，**以实机复跑为准**并回填本技能。
+- **凭据零入库**：管理口令 / API Key **只进凭据保险库**；技能内只写「从凭据库取」与占位符。
+- **对外发布是人类门禁**：生成内容对外可见前，须经负责人过目；技能只负责把内容准备好与发布到自有通道。
+- **供应商配置须过连接测试**：配完必须点「连接测试」并确认成功、且**跨刷新留存**，才算配好。
+- **占位符统一**：未填内容一律以固定占位形式标注（`TODO` ＋ 尖括号内字段名），**禁止空字符串占位**。
+- **只报事实**：核对只输出「读到的值」与「与期望是否一致」，不给主观评价。
+
+## 目录
+
+```
+SKILL.md
+references/endpoints.md          # 端点、鉴权与响应形态（实测）
+references/providers.md          # 各供应商位与配置要点
+references/course-pipeline.md    # 课件生成流水线与配额
+skills/admin-login/SKILL.md
+skills/course-generate/SKILL.md
+skills/publish-integration/SKILL.md
+skills/provider-config/SKILL.md
+skills/troubleshoot/SKILL.md
+README.md  CHANGELOG.md  VERSION  LICENSE  manifest.json
+```
+
+## 环境与约定
+
+- **默认语言**：面向用户的一切文本用简体中文；`name` / 目录名 / 字段名用英文小写连字符。
+- **入口固定**：本平台是**单一生产站**（非自部署），入口地址固定，不做参数化；域名变更时**升版本**并同步本技能。
+- **浏览器要求**：现代 Chromium 内核浏览器；后台为服务端鉴权，未登录访问受保护路径返回 401。
+- **依赖**：不自动安装任何包；本技能不附带脚本。
+- **版本口径**：流程或端点有变 → 升版本，同时改 `VERSION` 与 `CHANGELOG.md`。
+
+## 执行前核对
+
+```
+□ 已 Read 对应环节的 references/，未把本文件当业务正文
+□ 全文无口令 / API Key / 本机绝对路径
+□ 供应商配置只写「由使用者写入凭据库」，无明文
+□ 未填内容一律以固定占位形式标注（`TODO` ＋ 字段名），无空字符串占位
+□ 交付回复末块标题为「交付后请确认」
+```

@@ -1,0 +1,19 @@
+{
+ "schema": "kb-authority.v1",
+ "note": "自测用权威源：白名单只含两个部委域名；references 为节选公开文本。",
+ "allowlist_domains": ["mohrss.gov.cn", "moe.gov.cn"],
+ "references": [
+  {
+   "id": "ref-labor",
+   "title": "技能人才评价工作规程（节选）",
+   "path": "ref-labor.md",
+   "url": "https://www.mohrss.gov.cn/"
+  },
+  {
+   "id": "ref-edu",
+   "title": "职业教育专业目录（节选）",
+   "path": "ref-edu.md",
+   "url": "https://www.moe.gov.cn/"
+  }
+ ]
+}

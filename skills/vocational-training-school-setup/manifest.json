@@ -1,0 +1,55 @@
+{
+  "name": "vocational-training-school-setup",
+  "display_name": "职业技能等级认定培训机构 · 成立全流程（手把手版）",
+  "version": "2.0.0",
+  "mode": "Production",
+  "owner": "本团队",
+  "created": "2026-10-08",
+  "entrypoint": "SKILL.md",
+  "region_scope": ["湖北（鄂人社发〔2025〕2号 口径）", "上海（一网通办 / 市职鉴中心 口径）"],
+  "stages": ["run-through", "scope-route", "gap-check", "deliverables", "compliance", "evaluation"],
+  "tracks": {
+    "A": "从零新办一家培训机构（八门：立项与路线 / 名称核准 / 筹设 / 正式设立 / 审查许可 / 法人登记 / 开办配套 / 依法运行）",
+    "B": "已有机构新设职业（工种）（五门：主体与范围 / 定职业等级 / 组申报包 / 报送审查 / 获批纳管）",
+    "C": "评价资质（社评组织备案，须点名）"
+  },
+  "resources": {
+    "references": [
+      "references/执行主线.md",
+      "references/人工把关点.md",
+      "references/channel-contrast.md",
+      "references/official-process-hubei.md",
+      "references/official-process-shanghai.md",
+      "references/playbook-9-stages.md",
+      "references/checklist-and-gaps.md",
+      "references/application-package-recipe.md",
+      "references/case-shanghai-ai-trainer.md"
+    ],
+    "scripts": ["scripts/gap_check.py"],
+    "evals": ["reports/evidence-and-test.md"]
+  },
+  "gates": [
+    "以属地当期公开文件为准，不得跨地区套用数字",
+    "区分「办学许可（培训资质）」与「社评组织备案（评价资质）」",
+    "区分「人社·职业技能培训」与「教育/体育·校外培训」两条通道；出现「中小学生」即停手，不代做、不混装",
+    "不承诺办理结果、补贴金额、评审通过",
+    "不代办申报、不代签代盖、不生成虚假材料",
+    "对外材料不出现未签约的第三方机构具名",
+    "未取得原文的部分一律写「待属地核」",
+    "机械核对认不出推进表时拒答（退出码 3），不得把「没认出来」当成「全都没有」"
+  ],
+  "exclusions": [
+    "不代替审批部门解释政策",
+    "不用于准入类职业资格与学历教育办学",
+    "不代做校外培训（中小学生）通道的申报包",
+    "内部件（安全审计等）不随包发布"
+  ],
+  "sources": [
+    "https://rst.hubei.gov.cn/zfxxgk/zc/gfxwj/202501/t20250115_5503645.shtml",
+    "https://zwfw.hubei.gov.cn",
+    "https://zwdt.sh.gov.cn",
+    "https://rsj.sh.gov.cn",
+    "https://edu.sh.gov.cn/mbjy_fgwx_qt/20250117/b1ac00936c2a44d882e38c29a0754e6a.html",
+    "https://www.osta.org.cn"
+  ]
+}

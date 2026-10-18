@@ -1,0 +1,12 @@
+{
+ "source_id": "raw-06-blog-exact-dup",
+ "topic_id": "t-ai-trainer",
+ "topic": "人工智能训练师技能人才评价",
+ "url": "https://blog2.example.com/mirror",
+ "fetched_at": "2026-10-12T06:00:00.000Z",
+ "method": "GET",
+ "http_status": 200,
+ "content_type": "text/html",
+ "title": "转载：人工智能训练师培训笔记",
+ "text": "人工智能训练师属于数字职业类，其培训课程应覆盖数据标注、模型训练与效果评估。"
+}

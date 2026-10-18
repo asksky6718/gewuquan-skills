@@ -1,0 +1,12 @@
+{
+ "source_id": "raw-03-labor-gov-near-dup",
+ "topic_id": "t-ai-trainer",
+ "topic": "人工智能训练师技能人才评价",
+ "url": "https://www.mohrss.gov.cn/example/notice.html",
+ "fetched_at": "2026-10-12T03:00:00.000Z",
+ "method": "GET",
+ "http_status": 200,
+ "content_type": "text/html",
+ "title": "认定工作提示",
+ "text": "职业技能等级认定由经备案的用人单位或社会培训评价组织实施（2026年修订）。以上信息仅供参考。"
+}

@@ -1,0 +1,12 @@
+{
+ "source_id": "raw-01-labor-gov",
+ "topic_id": "t-ai-trainer",
+ "topic": "人工智能训练师技能人才评价",
+ "url": "https://www.mohrss.gov.cn/example/ai-trainer.html",
+ "fetched_at": "2026-10-12T01:00:00.000Z",
+ "method": "GET",
+ "http_status": 200,
+ "content_type": "text/html",
+ "title": "人工智能训练师技能人才评价",
+ "text": "职业技能等级认定由经备案的用人单位或社会培训评价组织实施。\n\nQ：人工智能训练师的申报条件是什么？\nA：申报条件按国家职业技能标准执行。\n\nQ：评价机构如何开展认定工作？\nA：评价机构应当在属地人力资源社会保障部门备案后开展认定工作。\n\n中国科学院发布量子计算新突破。"
+}

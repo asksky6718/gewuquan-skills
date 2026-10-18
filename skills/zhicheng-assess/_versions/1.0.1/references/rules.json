@@ -1,0 +1,255 @@
+{
+  "engine": "assess",
+  "outputs": "职业技能等级认定·自评：按现行口径逐级比对，出「能报哪一级 · 差哪几项 · 怎么补 · 下一步」，并附技能提升补贴提示与库外情形说明。",
+  "boundary": "本结论按现行口径测算，以评价机构与属地人社部门核定为准。",
+  "declarations": [
+    "须本人核对：学历与学籍、工作年限、既有证书与职称、业绩材料等均为本人填报，须逐项与原始证件核对后再作申报参考。",
+    "不代提交：报名、材料报送、信息填报一律由本人通过评价机构或官方渠道完成。",
+    "不代签字：申报表、承诺书及各类证明材料须由本人签字。",
+    "不代盖章：单位证明、考核意见等须由有权单位盖章。",
+    "本结论只作申报前自查，不构成评价机构或人社部门的受理与通过承诺。"
+  ],
+  "evidence": {
+    "zhicheng_levels": "人工智能训练师能报几级？各级申报条件是什么？",
+    "zhicheng_channel": "找谁报？三类评价通道怎么选？",
+    "zhicheng_verify": "评价机构资质怎么核验？",
+    "zhicheng_subsidy": "技能提升补贴能领多少？",
+    "zhicheng_certdiff": "职业技能等级证书与国家职业资格证书有什么区别？",
+    "zhicheng_certquery": "证书怎么查询？有哪些特性？"
+  },
+  "fields": [
+    { "name": "age", "label": "年龄（周岁）", "type": "number", "required": true, "min": 16, "max": 80, "placeholder": "例如 28" },
+    {
+      "name": "education",
+      "label": "最高学历",
+      "type": "select",
+      "required": true,
+      "options": [
+        ["below_secondary", "初中及以下"],
+        ["secondary", "技工院校 / 中专 / 中职"],
+        ["college", "大专"],
+        ["bachelor", "本科"],
+        ["master", "硕士"],
+        ["doctor", "博士"]
+      ]
+    },
+    {
+      "name": "major",
+      "label": "专业方向",
+      "type": "select",
+      "required": true,
+      "options": [
+        ["related", "属本专业或相关专业（如人工智能、计算机、教育技术等）"],
+        ["other", "其他专业 / 不确定"]
+      ]
+    },
+    {
+      "name": "education_extra",
+      "label": "培养路径（用于三级及以上的学历 / 学籍路径）",
+      "type": "select",
+      "required": true,
+      "options": [
+        ["none", "普通高校毕业，未走「经评估论证」或技工院校高级工班路径"],
+        ["advanced_tech", "技工院校高级工班及以上 / 技师学院（含预备技师班、技师班）"],
+        ["evaluated", "高校本专业或相关专业毕业，且该专业经评估论证"],
+        ["both", "以上两者都符合"]
+      ]
+    },
+    { "name": "work_years", "label": "累计从事本职业或相关职业工作年限（年）", "type": "number", "required": true, "min": 0, "max": 60, "placeholder": "例如 6" },
+    {
+      "name": "cert",
+      "label": "已有职业技能等级证书",
+      "type": "select",
+      "required": true,
+      "options": [
+        ["none", "无"],
+        ["level5", "五级 / 初级工"],
+        ["level4", "四级 / 中级工"],
+        ["level3", "三级 / 高级工"],
+        ["level2", "二级 / 技师"],
+        ["level1", "一级 / 高级技师"]
+      ]
+    },
+    { "name": "cert_years", "label": "该证书取得后年限（年；无证书填 0）", "type": "number", "required": false, "min": 0, "max": 60, "placeholder": "例如 3" },
+    {
+      "name": "title",
+      "label": "已有职称",
+      "type": "select",
+      "required": true,
+      "options": [
+        ["none", "无"],
+        ["junior", "初级职称"],
+        ["mid", "中级职称"],
+        ["senior", "高级职称"]
+      ]
+    },
+    { "name": "title_years", "label": "职称取得后年限（年；无职称填 0）", "type": "number", "required": false, "min": 0, "max": 60, "placeholder": "例如 2" },
+    { "name": "achievements", "label": "可举证业绩条数（项目 / 课程 / 获奖 / 论文等）", "type": "number", "required": true, "min": 0, "max": 99, "placeholder": "例如 3" }
+  ],
+  "sample": {
+    "age": 28,
+    "education": "bachelor",
+    "major": "related",
+    "education_extra": "none",
+    "work_years": 6,
+    "cert": "none",
+    "cert_years": 0,
+    "title": "none",
+    "title_years": 0,
+    "achievements": 2
+  },
+  "level_names": {
+    "1": "一级 / 高级技师",
+    "2": "二级 / 技师",
+    "3": "三级 / 高级工",
+    "4": "四级 / 中级工",
+    "5": "五级 / 初级工"
+  },
+  "min_age": 16,
+  "achievement_note_threshold": 3,
+  "achievement_note": "补充可举证的业绩材料（当前 {count} 条）：知识库条目未对业绩条数设量化门槛，业绩用于评价评审环节。",
+  "subsidy_levels": [3, 4, 5],
+  "subsidy_note": "若你参加失业保险满 12 个月（或正在领取失业保险金）、且属企业在职职工，拟取得的 {level} 证书在补贴范围（初级≤1000 / 中级≤1500 / 高级≤2000 元）；本页未收集参保与岗位信息，能否申领以参保地经办机构核定为准。",
+  "no_subsidy_note": "二级 / 一级不在技能提升补贴范围；补贴口径以参保地经办机构核定为准。",
+  "levels": [
+    {
+      "num": 5,
+      "paths": [
+        {
+          "key": "age16",
+          "label": "年满 16 周岁，拟从事或正在从事本职业或相关职业工作",
+          "when": { "field": "age", "op": ">=", "value": 16 },
+          "remedy": "年满 16 周岁后再申报。"
+        }
+      ]
+    },
+    {
+      "num": 4,
+      "paths": [
+        {
+          "key": "work5",
+          "label": "累计从事本职业或相关职业工作满 5 年",
+          "when": { "field": "work_years", "op": ">=", "value": 5 },
+          "remedy": "继续累计本职业或相关职业工作年限，并留存可举证材料（劳动合同、社保参保缴费记录等）。"
+        },
+        {
+          "key": "cert5y3",
+          "label": "取得五级 / 初级工证书后累计满 3 年",
+          "when": { "all": [ { "fn": "cert_at_least", "level": 5 }, { "field": "cert_years", "op": ">=", "value": 3 } ] },
+          "remedy": "先取得五级 / 初级工证书，再累计满 3 年。"
+        },
+        {
+          "key": "edu",
+          "label": "本专业或相关专业技工院校、中等及以上职业院校、专科及以上普通高校毕业生（含在读应届）",
+          "when": { "all": [ { "fn": "edu_at_least", "rank": 1 }, { "fn": "major_is", "value": "related" } ] },
+          "remedy": "取得本专业或相关专业毕业证书（含在读应届），或先向评价机构确认专业是否属「本专业或相关专业」。"
+        }
+      ]
+    },
+    {
+      "num": 3,
+      "paths": [
+        {
+          "key": "work10",
+          "label": "累计从事本职业或相关职业工作满 10 年",
+          "when": { "field": "work_years", "op": ">=", "value": 10 },
+          "remedy": "继续累计本职业或相关职业工作年限至满 10 年。"
+        },
+        {
+          "key": "cert4y4",
+          "label": "取得四级 / 中级工证书后累计满 4 年",
+          "when": { "all": [ { "fn": "cert_at_least", "level": 4 }, { "field": "cert_years", "op": ">=", "value": 4 } ] },
+          "remedy": "先取得四级 / 中级工证书，再累计满 4 年。"
+        },
+        {
+          "key": "title1y1",
+          "label": "取得专业对应关系的初级职称后累计满 1 年",
+          "when": { "all": [ { "fn": "title_at_least", "rank": 3 }, { "field": "title_years", "op": ">=", "value": 1 } ] },
+          "remedy": "取得与专业对应关系的初级职称后累计满 1 年。"
+        },
+        {
+          "key": "advanced_tech",
+          "label": "取得高级工班及以上毕业证书（含在读应届）",
+          "when": { "fn": "edu_extra_in", "values": ["advanced_tech", "both"] },
+          "remedy": "走技工院校高级工班及以上 / 技师学院路径并取得毕业证书（含在读应届）。"
+        },
+        {
+          "key": "cert4edu",
+          "label": "取得四级 / 中级工证书，并取得高校本专业或相关专业毕业证书（含在读应届）",
+          "when": { "all": [ { "fn": "cert_at_least", "level": 4 }, { "fn": "edu_at_least", "rank": 2 }, { "fn": "major_is", "value": "related" } ] },
+          "remedy": "先取得四级 / 中级工证书，并取得高校本专业或相关专业毕业证书。"
+        },
+        {
+          "key": "evaluated",
+          "label": "取得经评估论证的高校本专业或相关专业毕业证书（含在读应届）",
+          "when": { "all": [ { "fn": "edu_extra_in", "values": ["evaluated", "both"] }, { "fn": "major_is", "value": "related" } ] },
+          "remedy": "确认所读高校专业是否经评估论证；经评估论证的本专业或相关专业毕业证书可走该路径。"
+        }
+      ]
+    },
+    {
+      "num": 2,
+      "paths": [
+        {
+          "key": "cert3y5",
+          "label": "取得三级 / 高级工证书后累计满 5 年",
+          "when": { "all": [ { "fn": "cert_at_least", "level": 3 }, { "field": "cert_years", "op": ">=", "value": 5 } ] },
+          "remedy": "先取得三级 / 高级工证书，再累计满 5 年。"
+        },
+        {
+          "key": "title5cert3y1",
+          "label": "取得初级职称后累计满 5 年，并在取得三级证书后从事本职业工作满 1 年",
+          "when": { "all": [ { "fn": "title_at_least", "rank": 3 }, { "field": "title_years", "op": ">=", "value": 5 }, { "fn": "cert_at_least", "level": 3 }, { "field": "cert_years", "op": ">=", "value": 1 } ] },
+          "remedy": "取得初级职称并累计满 5 年，同时取得三级证书后从事本职业工作满 1 年。"
+        },
+        {
+          "key": "title_mid_y1",
+          "label": "取得中级职称后累计满 1 年",
+          "when": { "all": [ { "fn": "title_at_least", "rank": 2 }, { "field": "title_years", "op": ">=", "value": 1 } ] },
+          "remedy": "取得中级职称后累计满 1 年。"
+        },
+        {
+          "key": "cert3y2edu",
+          "label": "取得三级证书的高级技工学校、技师学院毕业生累计满 2 年（或技师学院预备技师班 / 技师班学生）",
+          "when": { "all": [ { "fn": "cert_at_least", "level": 3 }, { "field": "cert_years", "op": ">=", "value": 2 }, { "fn": "edu_extra_in", "values": ["advanced_tech", "both"] } ] },
+          "remedy": "取得三级证书并累计满 2 年，且具备高级技工学校 / 技师学院（含预备技师班、技师班）学籍或毕业证书。"
+        }
+      ]
+    },
+    {
+      "num": 1,
+      "paths": [
+        {
+          "key": "cert2y5",
+          "label": "取得二级 / 技师证书后累计满 5 年",
+          "when": { "all": [ { "fn": "cert_at_least", "level": 2 }, { "field": "cert_years", "op": ">=", "value": 5 } ] },
+          "remedy": "先取得二级 / 技师证书，再累计满 5 年。"
+        },
+        {
+          "key": "title5cert2y1",
+          "label": "取得中级职称后累计满 5 年，并在取得二级证书后从事本职业工作满 1 年",
+          "when": { "all": [ { "fn": "title_at_least", "rank": 2 }, { "field": "title_years", "op": ">=", "value": 5 }, { "fn": "cert_at_least", "level": 2 }, { "field": "cert_years", "op": ">=", "value": 1 } ] },
+          "remedy": "取得中级职称并累计满 5 年，同时取得二级证书后从事本职业工作满 1 年。"
+        },
+        {
+          "key": "title_senior_y1",
+          "label": "取得高级职称后累计满 1 年",
+          "when": { "all": [ { "fn": "title_at_least", "rank": 1 }, { "field": "title_years", "op": ">=", "value": 1 } ] },
+          "remedy": "取得高级职称后累计满 1 年。"
+        }
+      ]
+    }
+  ],
+  "next_steps": [
+    "对照「差哪几项」把可举证材料找齐：毕业证书 / 学籍验证、劳动合同、社保参保缴费记录、既有证书与职称证书、业绩清单。",
+    "报名前先核验评价机构：上职业技能等级评价机构公示查询系统（pjjg.osta.org.cn）查机构是否在公示名单内，并核对其可评价的职业与等级范围。",
+    "选定申报通道后，到「申报材料助手」（/workspace?skill=zhicheng-material）按目标等级生成材料清单与可复制的生成指令；提交、签字、盖章一律由本人完成。"
+  ],
+  "uncovered": [
+    "特级技师 / 首席技师的逐条申报条件（新八级工序列）——本条库里没有。",
+    "破格申报、直接认定、跨省（跨机构）互认的具体办法——本条库里没有。",
+    "各评价机构的当期报名时间、开考计划与收费标准——本条库里没有（须查机构公示或拨打 12333）。",
+    "上海以外属地的评价机构名单与批次申报时间——本条库里没有（本能力的出处在通用口径与已入库的上海细则；其他属地须查当地人社部门与评价机构当期公告）。",
+    "对「业绩条数」的量化门槛——本条库里没有；填写的业绩条数仅在评价评审环节作参考。"
+  ]
+}
