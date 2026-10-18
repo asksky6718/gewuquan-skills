@@ -154,7 +154,7 @@ async function testS8(runner, skillDir, repoRoot) {
   const raw = await readFile(join(skillDir, 'SKILL.md'), 'utf8')
   const { parseFrontmatter, SKILL_ID_RE } = repoRoot === null
     ? { parseFrontmatter: null, SKILL_ID_RE: /^[a-z][a-z0-9-]{0,63}$/ }
-    : await import(`file://${join(repoRoot, 'packages', 'gewu', 'handshake-mcp', 'src', 'skill-registry.js')}`)
+    : await import(`平台技能注册表`)
   const data = parseFrontmatter === null
     ? null
     : parseFrontmatter(raw).data
@@ -168,7 +168,7 @@ async function testS8(runner, skillDir, repoRoot) {
   let catalogOk = false
   let catalogDetail = ''
   if (repoRoot !== null) {
-    const { listSkillCatalog } = await import(`file://${join(repoRoot, 'packages', 'gewu', 'handshake-mcp', 'src', 'skill-registry.js')}`)
+    const { listSkillCatalog } = await import(`平台技能注册表`)
     const catalog = await listSkillCatalog({ skillsDir: dirname(skillDir) })
     catalogOk = catalog.skills.some(skill => skill.skill_id === 'kb-corpus-pipeline')
     catalogDetail = `skill_list 可见=${catalogOk} 目录=${catalog.dir}`

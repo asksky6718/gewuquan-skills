@@ -26,7 +26,7 @@ AiToEarn 的分发链路有个反直觉的地方：**控制台页面本身不发
 
 把本目录整体放到你的技能根目录下（目录名保持 `aito-self-media-distribution`）：
 
-- 常见技能根：`~/.workbuddy/skills/`、`~/.agents/skills/`、`~/.codex/skills/`、`~/.trae-cn/skills/`
+- 常见技能根：`~/.workbuddy/skills/`、`~/.agents/skills/`、`~/.客户端/skills/`、`~/.trae-cn/skills/`
 - 装完开新会话，问「列出你当前可用的技能」，应能看到本条。
 
 ## 怎么唤起

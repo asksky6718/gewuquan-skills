@@ -60,7 +60,7 @@
 
 ```bash
 cp -r vocational-training-school-setup ~/.workbuddy/skills/    # WorkBuddy
-cp -r vocational-training-school-setup ~/.codex/skills/        # Codex 系
+cp -r vocational-training-school-setup ~/.客户端/skills/        # 客户端 系
 ```
 
 装好后，对话里说「我要办个培训机构」「从哪开始」「我想加一个职业工种」「检查我的项目推进表」即可唤起。

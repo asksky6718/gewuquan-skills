@@ -1,6 +1,6 @@
 ---
 name: publish-integration
-description: 把 EduOpenAI Core 已生成的课件发布出去——发布到 OSS 静态播放器、同步为网校课时、或取 iframe 嵌入码。当用户说「发布到 OSS」「同步网校课时」「取 iframe」「把课件挂到网校」时使用；须课件已生成并在「我的课件」可见。
+description: 把 课程生产工具 已生成的课件发布出去——发布到 OSS 静态播放器、同步为网校课时、或取 iframe 嵌入码。当用户说「发布到 OSS」「同步网校课时」「取 iframe」「把课件挂到网校」时使用；须课件已生成并在「我的课件」可见。
 ---
 
 # 发布对接

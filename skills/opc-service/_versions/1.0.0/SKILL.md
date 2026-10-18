@@ -3,9 +3,9 @@ skill_id: opc-service
 version: 1.0.0
 min_scope: read
 summary: 教育公司教学服务交付：开班准备、课堂服务与学习跟进的标准化动作
-owner: 能工巧匠
+owner: 协作方维护方
 tags: [opc, service, 交付, 教育]
-provenance: T-36 巧匠内置骨架（待与 llm-wiki 原件同步）
+provenance: T-36 维护方内置骨架（待与 llm-wiki 原件同步）
 ---
 # opc-service · 教学服务交付
 

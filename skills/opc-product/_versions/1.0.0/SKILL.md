@@ -3,9 +3,9 @@ skill_id: opc-product
 version: 1.0.0
 min_scope: read
 summary: 教育公司产品与定价：课程/服务结构设计、成本核算与定价区间的最小方法
-owner: 能工巧匠
+owner: 协作方维护方
 tags: [opc, product, 定价, 教育]
-provenance: T-36 巧匠内置骨架（待与 llm-wiki 原件同步）
+provenance: T-36 维护方内置骨架（待与 llm-wiki 原件同步）
 ---
 # opc-product · 产品与定价
 

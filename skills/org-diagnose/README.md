@@ -1,6 +1,6 @@
 # org-diagnose · 机构经营诊断
 
-> 技能包（数据）＋ 通用引擎（代码）：本目录只放业务规则与人读说明，执行由格物圈技能引擎 `diagnose` 完成。
+> 技能包（数据）＋ 通用引擎（代码）：本目录只放业务规则与人读说明，执行由平台技能引擎 `diagnose` 完成。
 > `min_scope: read`（只读）；业务规则的唯一事实源是 `references/rules.json`。
 
 ## 一、它做什么
@@ -60,4 +60,4 @@ org-diagnose/
 ## 七、版本与许可
 
 - 版本：`1.0.0`（见 `VERSION` 与 `SKILL.md` frontmatter）。
-- 许可：MIT，署名「能工巧匠」，全文见 `LICENSE`。
+- 许可：MIT，署名「协作方维护方」，全文见 `LICENSE`。

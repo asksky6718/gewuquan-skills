@@ -3,9 +3,9 @@ skill_id: opc-aftersales
 version: 1.0.0
 min_scope: read
 summary: 教育公司售后与续费：结课回访、投诉处理、续费与转介绍的最小闭环
-owner: 能工巧匠
+owner: 协作方维护方
 tags: [opc, aftersales, 续费, 教育]
-provenance: T-36 巧匠内置骨架（待与 llm-wiki 原件同步）
+provenance: T-36 维护方内置骨架（待与 llm-wiki 原件同步）
 ---
 # opc-aftersales · 售后与续费
 

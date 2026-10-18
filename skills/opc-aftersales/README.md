@@ -65,7 +65,7 @@ AS-4 结算对账     只核 approval 是否存在，金额判定留人
 
 ```bash
 cp -r opc-aftersales ~/.workbuddy/skills/     # WorkBuddy
-cp -r opc-aftersales ~/.codex/skills/         # Codex 系
+cp -r opc-aftersales ~/.客户端/skills/         # 客户端 系
 ```
 
 装好后说「售后部」「对账」即可唤起。

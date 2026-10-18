@@ -60,7 +60,7 @@
 
 ```bash
 cp -r zhicheng-pm ~/.workbuddy/skills/     # WorkBuddy
-cp -r zhicheng-pm ~/.codex/skills/         # Codex 系
+cp -r zhicheng-pm ~/.客户端/skills/         # 客户端 系
 ```
 
 技能自带 `SKILL.md`（含 `name` / `description` / 触发词），装好后说「职称评审」即可唤起。
@@ -94,10 +94,10 @@ cp -r zhicheng-pm ~/.codex/skills/         # Codex 系
 
 ## 七、测试与在线体验
 
-本项目在 **格物圈** 平台做知识库与问答链路测试：
+本项目在 **平台** 平台做知识库与问答链路测试：
 
 - 测试站点（公网）：**gw.vipeoe.com:8089**
-- 内网入口：**dev.www.gewuquan.cn**
+- 内网入口：**www.gewuquan.cn**
 
 ## 八、版本
 

@@ -2,7 +2,7 @@
  * kb-corpus-pipeline · 内部词表（清洗硬门）。
  *
  * 复用口径：默认三项与仓库技能门禁 `DEFAULT_INTERNAL_PATTERNS` 等价
- * （`packages/gewu/handshake-mcp/src/skill-versioning.js`），确保「清洗零命中」
+ * （`平台技能版本表`），确保「清洗零命中」
  * 与「技能上架词表扫描」是同一把尺子。
  *
  * 词表默认项存于 `references/internal-wordlist.json`；含内部标识的模式以 parts 分段，

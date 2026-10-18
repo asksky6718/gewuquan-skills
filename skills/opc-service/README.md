@@ -64,7 +64,7 @@ DL-5 进度可查      进度字段可追踪、可出证据
 
 ```bash
 cp -r opc-service ~/.workbuddy/skills/     # WorkBuddy
-cp -r opc-service ~/.codex/skills/         # Codex 系
+cp -r opc-service ~/.客户端/skills/         # 客户端 系
 ```
 
 装好后说「服务部」「开始交付」即可唤起。

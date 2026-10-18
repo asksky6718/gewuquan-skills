@@ -1,9 +1,9 @@
 {
-  "name": "eduopenai-core-ops",
-  "display_name": "EduOpenAI Core 操作",
+  "name": "课程生产工具-core-ops",
+  "display_name": "课程生产工具 操作",
   "version": "1.0.0",
   "mode": "Production",
-  "role": "EduOpenAI Core 管理后台与生成端的操作技能（登录 / 生成课件 / 发布对接 / 供应商配置 / 排障）",
+  "role": "课程生产工具 管理后台与生成端的操作技能（登录 / 生成课件 / 发布对接 / 供应商配置 / 排障）",
   "publish": "public（已参数化：无口令与 API Key、无本机绝对路径）",
   "owner": "本团队",
   "created": "2026-10-13",
@@ -50,7 +50,7 @@
     "不自动安装依赖"
   ],
   "sources": [
-    "EduOpenAI Core 生产站实机核对（2026-10-13）",
+    "课程生产工具 生产站实机核对（2026-10-13）",
     "平台用户手册与既有运维要点（2026-08）"
   ]
 }

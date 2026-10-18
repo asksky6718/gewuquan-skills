@@ -63,7 +63,7 @@ DE-3 审批留痕     approval_channel / approval_by / approval_at 三项齐全
 
 ```bash
 cp -r opc-sales ~/.workbuddy/skills/     # WorkBuddy
-cp -r opc-sales ~/.codex/skills/         # Codex 系
+cp -r opc-sales ~/.客户端/skills/         # 客户端 系
 ```
 
 装好后说「销售部」「建订单」即可唤起。

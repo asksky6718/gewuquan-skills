@@ -63,7 +63,7 @@ python tools/selftest.py
 
 ```bash
 cp -r opc-market ~/.workbuddy/skills/     # WorkBuddy
-cp -r opc-market ~/.codex/skills/         # Codex 系
+cp -r opc-market ~/.客户端/skills/         # 客户端 系
 ```
 
 装好后说「市场部」「招生获客」「自媒体获客」即可唤起。需要 Python ≥ 3.10（仅校验器用到，不联网、不装包）。

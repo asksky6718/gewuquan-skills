@@ -69,7 +69,7 @@
 
 ```bash
 cp -r zhicheng-assess ~/.workbuddy/skills/     # WorkBuddy
-cp -r zhicheng-assess ~/.codex/skills/         # Codex 系
+cp -r zhicheng-assess ~/.客户端/skills/         # 客户端 系
 ```
 
 也可以把本目录作为技能源，交由承载方的通用 `assess` 引擎按 `references/engine.json` 装配：

@@ -3,9 +3,9 @@ skill_id: opc-market
 version: 1.0.0
 min_scope: read
 summary: 教育公司市场获客：目标人群画像、渠道选择、内容选题与投放复盘的最小可执行清单
-owner: 能工巧匠
+owner: 协作方维护方
 tags: [opc, market, 获客, 教育]
-provenance: T-36 巧匠内置骨架（待与 llm-wiki 原件同步）
+provenance: T-36 维护方内置骨架（待与 llm-wiki 原件同步）
 ---
 # opc-market · 市场获客
 

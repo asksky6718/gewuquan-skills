@@ -68,7 +68,7 @@ PR-5 时长对账     累计时长偏差 ±10% 以内
 
 ```bash
 cp -r opc-product ~/.workbuddy/skills/     # WorkBuddy
-cp -r opc-product ~/.codex/skills/         # Codex 系
+cp -r opc-product ~/.客户端/skills/         # 客户端 系
 ```
 
 装好后说「产品部」「产一门课」即可唤起。
