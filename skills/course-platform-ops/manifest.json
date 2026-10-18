@@ -1,6 +1,6 @@
 {
-  "name": "课程生产工具-core-ops",
-  "display_name": "课程生产工具 操作",
+  "name": "course-platform-ops",
+  "display_name": "课程平台后台操作",
   "version": "1.0.0",
   "mode": "Production",
   "role": "课程生产工具 管理后台与生成端的操作技能（登录 / 生成课件 / 发布对接 / 供应商配置 / 排障）",
